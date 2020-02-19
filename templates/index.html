@@ -1,0 +1,294 @@
+{% extends "layout.html" %}
+
+{% block title %}Nick's portfolio{% endblock %}
+
+{% block body %}
+<body id="page-top" data-spy="scroll" data-target="#navbarResponsive">
+    
+    <!-- Navigation Start-->
+    <nav id="mainNav" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="container">
+  
+        <a class="navbar-brand" href="#page-top">Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+              <span class="navbar-toggler-icon"></span>
+        </button>
+            
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#page-top">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation End-->
+  
+  
+    <!-- Landing page Start -->
+    <div id="landing">
+      <!--<div class="overlay"></div>-->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="page-heading">
+                <h1>Nick's Portfolio</h1>
+                <span class="subheading"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Landing page End -->
+  
+  
+    <!-- Projects Start -->
+    <div id="projects" class="container">
+      <h1 class="my-4">Projects
+        <!--<small>Extra info</small>-->
+      </h1>
+    
+      <div class="row">
+  
+        <!-- card nr. 1 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <div class="card h-100">
+            <!-- card header image -->
+            <div class="zoom-effect overlay-effect">
+              <a href="https://github.com/NickT5/hebrew-letters-clf" target="_blank">
+                <img class="card-img-top" src="{{ url_for('static', filename = 'img/hebrew-clf-v2.jpg') }}" alt="Project One">
+                <div class="overlay-text">
+                  <h4>Hebrew letter classifier</h4>
+                  <p>FLASK | FASTAI</p>
+                </div>
+              </a> 
+            </div>
+            <!-- card body -->
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="https://github.com/NickT5/hebrew-letters-clf" target="_blank">Hebrew Letter Classifier</a>
+              </h4>
+              <p class="card-note">&#8212; Project one</p>
+              <p class="card-text">I coded a Hebrew letter classifier. I used fastai <i>(=deep learning library on top of PyTorch) </i> to train the CLF. I used Flask, HTML, CSS, Bootstrap to design a clean web application. I'm planning to expand this project.</p>
+              
+            </div>
+          </div>
+        </div>
+  
+        <!-- card nr. 2 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <div class="card h-100">
+            <!-- card header image -->
+            <div class="zoom-effect overlay-effect">
+              <a href="https://github.com/NickT5/todo_platform" target="_blank">
+                <img class="card-img-top" src="{{ url_for('static', filename = 'img/todo-platform.jpg') }}" alt="Project Two">
+                <div class="overlay-text">
+                  <h4>To Do Application</h4>
+                  <p>FLASK | SQL</p>
+                </div> 
+              </a> 
+            </div>
+            <!-- card body -->
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="https://github.com/NickT5/todo_platform" target="_blank">To Do Application</a>
+              </h4>
+              <p class="card-note">&#8212; Project Two</p>
+              <p class="card-text">Project 2 is a ToDo Platform I build. The idea is to share an account with your family to see what kind of tasks need to happen around the house, e.g. buy bread. The project follows the MVC principle. I used Flask, SQL, HTML, CSS, Bootstrap to build it. Heroku was used to deploy the web app in the cloud.</p>
+  
+            </div>
+          </div>
+        </div>
+  
+        <!-- card nr. 3 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <div class="card h-100">
+            <!-- card header image -->
+            <div class="zoom-effect overlay-effect">
+              <a href="http://www.ferme-leclercqz.be/" target="_blank">
+                <img class="card-img-top" src="{{ url_for('static', filename = 'img/ferme-leclercqz.jpg') }}" alt="Project Three">
+                <div class="overlay-text">
+                  <h4>Ferme Leclercqz</h4>
+                  <p>HTML | CSS | BOOTSTRAP</p>
+                </div> 
+              </a>
+            </div>
+            <!-- card body -->
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="http://www.ferme-leclercqz.be/" target="_blank">Ferme Leclercqz</a>
+              </h4>
+              <p class="card-note">&#8212; Project Three</p>
+              <p class="card-text">This is a website I made for a friend. Ferme Leclercqz is a vacation residence in the Ardennes near the French border. The website is made with HTML, CSS and Bootstrap to make it user-friendly for all devices. Computers, tablets and smartphones.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- card nr. 4 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <div class="card h-100">
+            <!-- card header image -->
+            <div class="zoom-effect overlay-effect">
+              <a href="https://github.com/NickT5/NickT5.github.io" target="_blank">
+                <img class="card-img-top" src="{{ url_for('static', filename = 'img/portfolio.jpg') }}" alt="Project Four">
+                <div class="overlay-text">
+                  <h4>Portfolio</h4>
+                  <p>HTML | CSS | BOOTSTRAP</p>
+                </div>
+              </a> 
+            </div>
+            <!-- card body -->
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="https://github.com/NickT5/NickT5.github.io" target="_blank">Portfolio</a>
+              </h4>
+              <p class="card-note">&#8212; Project Four</p>
+              <p class="card-text">I build this portfolio website with HTML, CSS and Bootstrap. It's hosted on GitHub. This portfolio will get updated when I code a new project or expand a previous one.</p>
+            </div>
+          </div>
+        </div>
+  
+  
+        <!-- card nr. 5 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <div class="card h-100">
+            <!-- card header image -->
+            <div class="zoom-effect overlay-effect">
+              <a href="https://github.com/NickT5/tictactoe" target="_blank">
+                <img class="card-img-top" src="{{ url_for('static', filename = 'img/tictactoe.gif') }}" alt="Project Five">
+                <div class="overlay-text">
+                  <h4>Tic Tac Toe</h4>
+                  <p>PYTHON | ARCADE</p>
+                </div>
+              </a>  
+            </div>
+            <!-- card body -->
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="https://github.com/NickT5/tictactoe" target="_blank">Tic Tac Toe</a>
+              </h4>
+              <p class="card-note">&#8212; Project Five</p>
+              <p class="card-text">I build the Tic Tac Toe game in Python. I coded two versions. One with a command line interface (CLI) and the other with a GUI. For the latter I used Arcade which is a Python graphics library.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- card nr. 6 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <div class="card h-100">
+            <!-- card header image -->
+            <div class="zoom-effect overlay-effect">
+              <a href="https://github.com/NickT5/sons" target="_blank">
+                <img class="card-img-top" src="{{ url_for('static', filename = 'img/sons.jpg') }}" alt="Project Six">
+                <div class="overlay-text">
+                  <h4>SONS</h4>
+                  <p>LARAVEL | PHP</p>
+                </div>
+              </a>  
+            </div>
+            <!-- card body -->
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="https://github.com/NickT5/sons" target="_blank">Seen Or Not Seen</a>
+              </h4>
+              <p class="card-note">&#8212; Project Six</p>
+              <p class="card-text">SONS. Seen Or Not Seen. Keep an overview for yourself of the movies you've seen and the movies you want to see. This is a web application build in Laravel which is a large PHP framework.</p>
+            </div>
+          </div>
+        </div>
+  
+  
+        <!-- card nr. 7 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <div class="card h-100">
+            <!-- card header image -->
+            <div class="zoom-effect overlay-effect">
+              <a href="https://github.com/NickT5/annonymous-overlays" target="_blank">
+                <img class="card-img-top" src="{{ url_for('static', filename = 'img/anonymous.jpg') }}" alt="Project Seven">
+                <div class="overlay-text">
+                  <h4>Anonymize</h4>
+                  <p>PYTHON | OPENCV</p>
+                </div>
+              </a>  
+            </div>
+            <!-- card body -->
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="https://github.com/NickT5/annonymous-overlays" target="_blank">Anonymize</a>
+              </h4>
+              <p class="card-note">&#8212; Project Seven</p>
+              <p class="card-text">Anonymize yourself by detecting and blurring your face or detecting your eyes and overlaying them with googly eyes. This project is build with Python and OpenCV.</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    <!-- Content (projects) End -->
+  
+  
+    <!-- About Start -->
+    <div id="about" class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-5 order-lg-1">
+          <div class="p-5 text-center">
+            <img class="img-fluid rounded-circle avatar" src="{{ url_for('static', filename = 'img/avatar.png') }}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-7 order-lg-2">
+          <div class="p-5">
+            <h2 class="display-4">Hi, I'm Nick</h2>
+            <p>I graduated as an industrial engineer electronics-ICT from KU Leuven campus De Nayer in Belgium. In my spare time I like to go to the gym, play video games, build little projects or spend time with my parrot pet, DC.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About End -->
+  
+  
+    <!-- Footer Start-->
+    <footer class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-sm-5 text-center">
+  
+          <a href="mailto:nick-todts@hotmail.com" target="_blank">
+            <span id="icon-mail" class="fa-stack fa-2x">
+              <i id="icon-bg-mail" class="fas fa-square fa-stack-2x"></i>
+              <i id="icon-fg-mail" class="far fa-envelope fa-stack-1x"></i>
+            </span>
+          </a>
+          <a href="https://www.linkedin.com/in/nick-todts-486064111/" target="_blank">
+            <span id="icon-linkedin" class="fa-stack fa-2x">
+              <i id="icon-bg-linkedin" class="fa fa-square fa-stack-2x"></i>
+              <i id="icon-fg-linkedin" class="fab fa-linkedin-in fa-stack-1x"></i>
+            </span>
+          </a>
+          <a href="https://github.com/NickT5" target="_blank">
+            <span id="icon-github" class="fa-stack fa-2x">
+              <i id="icon-bg-github" class="fa fa-square fa-stack-2x"></i>
+              <i id="icon-fg-github" class="fab fa-github fa-stack-1x"></i>
+            </span>
+          </a>
+        </div>
+        <hr class="line">
+        <!--&copy;Nick's portfolio.-->
+        Nick's portfolio.
+      </div>  
+    </footer>
+    <!-- Footer End-->
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>          <!-- jQuery library -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>       <!-- Latest compiled JavaScript -->
+  <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+  </body>
+  
+
+{% endblock %} 

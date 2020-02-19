@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+/*-- Navigation Start --*/
+.navbar{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background-color: rgba(0, 0, 0, 0.6)!important;
+  }
+  .navbar-brand img{
+    height: 2rem;
+  }
+  .navbar-nav li{
+    padding-right: .7rem;
+  }
+  .navbar-dark .navbar-nav .nav-link{
+    color:white;
+    padding-top: .8rem;
+  }
+  .navbar-dark .navbar-nav .nav-link.active,
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #3cb371;
+  }
+/*-- Navigation End --*/
+/*-- Landing page Start --*/
+#landing{
+    background-color: rgba(52, 58, 64, 1);
+    background-image: url(../img/zach-lezniewicz-o8cMgOUB-Z0-unsplash.jpg);  /* image by https://unsplash.com/@zachlez */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    width: 100%;
+    height: 62vh;
+}
+/*.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    background-color: 
+    #212529;
+    opacity: 0.3;
+}*/
+
+.page-heading{
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20vh;
+}
+
+.page-heading h1{
+    font-size: 70px;
+    font-weight: 700;
+    font-family: 'Bree Serif', serif;
+}
+
+.subheading{
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.1;
+    display: block;
+    margin: 10px 0 0;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/*-- Landing page End --*/
+
+/*-- Projects Start --*/
+.card-title a{
+    color: #65c9ff;
+ }
+ .card-title a:hover{
+     text-decoration: none;
+ }
+.card img{
+    border-bottom: 1px solid rgb(233, 223, 223);
+}
+ .card-note{
+    font-style: italic;
+    font-size: 85%;
+    margin: 0;
+ }
+
+/* Zoom effect */
+.zoom-effect{
+    overflow: hidden;
+}
+.zoom-effect img{
+    transition: all 0.8s ease;
+}
+.zoom-effect:hover img{
+    transform: scale(1.3);
+}
+
+/* Overlay effect */
+.overlay-effect{
+    position: relative;
+}
+.overlay-effect:hover .overlay-text{
+    opacity: 0.95;
+}
+.overlay-text{
+    color: white;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 20%;
+    height: 100%;
+    background-color: rgba(101, 201, 255, 1.0); /*= #65c9ff; = light blue*/
+    opacity: 0;
+    transition: opacity 1.0s;
+    -webkit-transition: opacity 1.0s;
+    -moz-transition: opacity 1.0;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.overlay-text h4{
+    font-size: 1.1415926rem;
+    font-weight: 650;
+}
+.overlay-text p{
+    font-weight: 500;
+}
+
+
+
+/*-- Projects End --*/
+
+/*-- Footer Start --*/
+footer{
+    background-color: #40474e;
+    color: #ababab;
+    padding: 1.3rem 0 1.5rem;
+    width: 100%;
+}
+footer svg.svg-inline--fa {
+    font-size: 1.4rem;
+}
+
+/* Mail icon */
+footer #icon-bg-mail{ color: #65c9ff;}
+footer #icon-fg-mail{ color: white;}
+footer #icon-mail:hover > #icon-fg-mail{ color:#65c9ff;}
+footer #icon-mail:hover > #icon-bg-mail{ color:white;}
+/* Linkedin icon */
+footer #icon-bg-linkedin{ color: #65c9ff;}
+footer #icon-fg-linkedin{ color: white;}
+footer #icon-linkedin:hover > #icon-fg-linkedin{ color:#65c9ff;}
+footer #icon-linkedin:hover > #icon-bg-linkedin{ color:white;}
+/* Github icon */
+footer #icon-bg-github{ color: #65c9ff;}
+footer #icon-fg-github{ color: white;}
+footer #icon-github:hover > #icon-fg-github{ color:#65c9ff;}
+footer #icon-github:hover > #icon-bg-github{ color:white;}
+
+.line{
+    width: 100%;
+    border-top: .15rem solid #666b71;
+}
+/*-- Footer End--*/
+
+/*------------- Media Queries -------------*/
+@media (max-width: 767px) {
+    .page-heading h1{
+        font-size: 2.3rem;
+        letter-spacing: .15rem;
+        padding-bottom: .5rem;
+    }
+    .subheading{
+        font-size: 1.2rem;
+        padding-bottom: 1.2rem;
+    }
+    .avatar{
+        width: 75%;
+        height: auto;
+    }
+}
+/*
+light blue: #65c9ff rgb(101,201,255)
+*/
