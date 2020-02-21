@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard - Notify{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">{% endblock %}
+{% block body %}
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Admin</div>
+      <div class="list-group list-group-flush">
+        <a href="/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="/dashboard/projects" class="list-group-item list-group-item-action bg-light">Projects</a>
+        <a href="/dashboard/subscriptions" class="list-group-item list-group-item-action bg-light">Subscriptions</a>
+        <a href="/dashboard/notify" class="list-group-item list-group-item-action bg-light">Notify</a>
+        <a href="/logout" class="list-group-item list-group-item-action bg-light">Logout</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <h1 class="mt-4">Notify</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis vehicula metus, ullamcorper pharetra urna. Integer ut justo felis. Sed rhoncus pharetra imperdiet. Sed in nisl eget massa hendrerit elementum. Phasellus metus urna, interdum at nisi sit amet, congue vestibulum felis. Proin pulvinar mollis elit ut pulvinar. Nullam vestibulum ut libero ut ultrices. Ut placerat porta risus, ac feugiat dolor dapibus nec. Nunc dignissim sapien fringilla, tincidunt eros quis, scelerisque lorem. </p>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+{% endblock %}
