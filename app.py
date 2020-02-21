@@ -74,22 +74,26 @@ def login():
 
 
 @app.route("/dashboard")
+@app.route("/dashboard/")
 @login_required
 def dashboard():
-    return render_template("dashboard/dashboard.html")
+    return render_template("dashboard/dashboard_home.html")
 
 
 @app.route("/dashboard/projects")
+@login_required
 def dashboard_projects():
     return render_template("dashboard/projects.html")
 
 
 @app.route("/dashboard/subscriptions")
+@login_required
 def dashboard_subscriptions():
     return render_template("dashboard/subscriptions.html")
 
 
 @app.route("/dashboard/notify")
+@login_required
 def dashboard_notify():
     return render_template("dashboard/notify.html")
 
@@ -98,10 +102,3 @@ def dashboard_notify():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
-
-# hasing pw -> pip install flask-bcrypt
-# import flask_bcrypt import Bcrypt
-# bcrypt = Bcrypt(app)
-# hashed_pw = bcrypt.generate_password_hash(pw).decode('utf-8')
-# bcrypt.check_password_hash(hashed_pw, user_input_pw) // returns boolean
