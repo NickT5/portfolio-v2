@@ -3,8 +3,35 @@
 {% block pagecontent %}
     <div id="page-content-wrapper">
       <div class="container-fluid">
-        <h1 class="mt-4">Projects</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis vehicula metus, ullamcorper pharetra urna. Integer ut justo felis. Sed rhoncus pharetra imperdiet. Sed in nisl eget massa hendrerit elementum. Phasellus metus urna, interdum at nisi sit amet, congue vestibulum felis. Proin pulvinar mollis elit ut pulvinar. Nullam vestibulum ut libero ut ultrices. Ut placerat porta risus, ac feugiat dolor dapibus nec. Nunc dignissim sapien fringilla, tincidunt eros quis, scelerisque lorem. </p>
+          {{ super() }}
+          <div class="row">
+          <div class="col-md-5">
+          <div class="row align-items-center justify-content-between">
+          <h1>Projects</h1>
+            <form action="/dashboard/projects/create" method="GET">
+                <button class="btn btn-outline-primary">Add Project</button>
+            </form>
+
+          </div>
+
+          {% for project in projects %}
+            <div class="media project-card">
+                <div class="media-left media-middle">
+                    <a href="/dashboard/projects/{{project.id}}/edit"><img class="project-thumbnail" src="{{url_for('static', filename=project.thumbnail)}}"></a>
+                </div>
+                <div class="media-body pl-2 pt-2">
+                    <a href="/dashboard/projects/{{project.id}}/edit"><h3 class="media-heading">{{loop.index}} - {{project.title}}</h3></a>
+                <p>{{project.overlay_text}}</p>
+                <p>Created at: {{project.created_at}}
+                </br>
+                    Updated at: {{project.updated_at}}
+                </p>
+                </div>
+            </div>
+          {% endfor %}
+          </div>
+          </div>
+
       </div>
     </div>
 {% endblock %}

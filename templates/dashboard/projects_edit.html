@@ -1,0 +1,78 @@
+{% extends "dashboard/dashboard_base.html" %}
+
+{% block pagecontent %}
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        {{ super() }}
+        <h1 class="mt-4">Projects - Edit project</h1>
+
+        <form action="/dashboard/projects/{{project_id}}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT" />
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.title.label }}<br>
+                {{ form.title(autocomplete="off") }}
+                {% for error in form.title.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.description.label }}<br>
+                {{ form.description(cols="30", rows="9", autocomplete="off") }}
+                {% for error in form.description.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.thumbnail.label }}<br>
+                {{ form.thumbnail(size=32, class="form-control-file") }}
+                {% if form.thumbnail.errors %}
+                    {% for error in form.thumbnail.errors %}
+                        <span class="text-danger">[{{ error }}]</span></br>
+                    {% endfor %}
+                {% endif %}
+            </p>
+            <p>
+                {{ form.hide.label }}<br>
+                {{ form.hide(size=32, autocomplete="off") }}
+                {% for error in form.hide.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.order_number.label }}<br>
+                {{ form.order_number(size=32, autocomplete="off") }}
+                {% for error in form.order_number.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.overlay_title.label }}<br>
+                {{ form.overlay_title(size=32, autocomplete="off") }}
+                {% for error in form.overlay_title.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.overlay_text.label }}<br>
+                {{ form.overlay_text(size=32, autocomplete="off") }}
+                {% for error in form.overlay_text.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.link.label }}<br>
+                {{ form.link(size=32, autocomplete="off") }}
+                {% for error in form.link.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit(class="btn btn-outline-info", value="Edit Project") }}</p>
+        </form>
+        <form action="/dashboard/projects/{{project_id}}/delete" method="POST">
+          <input type="hidden" name="_method" value="DELETE" />
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+{% endblock %}

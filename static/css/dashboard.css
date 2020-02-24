@@ -29,6 +29,18 @@ body {
   min-width: 100vw;
 }
 
+.project-card{
+    background-color: rgb(248, 249, 250);
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+}
+
+.project-thumbnail {
+    max-width: 100%;
+    height: auto;
+}
+
 #wrapper.toggled #sidebar-wrapper {
   margin-left: 0;
 }
