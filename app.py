@@ -3,9 +3,9 @@ from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-from datetime import datetime
 from forms import LoginForm, ProjectForm
 import os
+from datetime import datetime
 from PIL import Image
 
 app = Flask(__name__)
@@ -32,8 +32,8 @@ class User(db.Model, UserMixin):
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(40))
-    description = db.Column(db.String(200))
-    thumbnail = db.Column(db.String(100), default='img/default.jpg')
+    description = db.Column(db.String(500))
+    thumbnail = db.Column(db.String(200), default='img/default.jpg')
     hide = db.Column(db.Integer, default=0)
     order_number = db.Column(db.Integer)
     overlay_title = db.Column(db.String(32))
@@ -53,7 +53,6 @@ def save_picture(form_picture):
 
     # Save image to filesystem.
     img = Image.open(form_picture)
-    # img.thumbnail((210, 120))
     img.save(picture_path)
 
     # Return filename so we can save it to the database.
@@ -92,7 +91,8 @@ def load_user(user_id):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    projects = Project.query.order_by(Project.order_number).all()
+    return render_template("index.html", projects=projects)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -127,7 +127,7 @@ def dashboard():
 @app.route("/dashboard/projects/", methods=['GET'])
 @login_required
 def dashboard_projects_index():
-    projects = Project.query.all()
+    projects = Project.query.order_by(Project.order_number).all()
     return render_template("dashboard/projects.html", projects=projects)
 
 
@@ -193,6 +193,22 @@ def dashboard_projects_delete(project_id):
     db.session.commit()
     flash(f'Deleted project "{title}".', "success")
     return redirect('/dashboard/projects')
+
+
+@app.route("/dashboard/projects/order", methods=['POST'])
+@login_required
+def projects_order():
+    """ Save projects order send by an ajax request. """
+
+    ordered_project_ids = request.json['ordered_project_ids']
+
+    for i, project_id in enumerate(ordered_project_ids):
+        project = Project.query.get(project_id)
+        project.order_number = i
+
+    db.session.commit()
+
+    return "Updated projects order."
 
 
 @app.route("/dashboard/subscriptions")

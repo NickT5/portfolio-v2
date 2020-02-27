@@ -2,13 +2,16 @@
 
 {% block title %}Dashboard{% endblock %}
 {% block stylesheet %}<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">{% endblock %}
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
 {% block body %}
 <body>
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">PORTFOLIO</div>
+      <div class="sidebar-heading"><a href="/">PORTFOLIO</a></div>
       <div class="list-group list-group-flush">
         <a href="/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="/dashboard/projects" class="list-group-item list-group-item-action bg-light">Projects</a>
@@ -49,6 +52,8 @@
       $("#wrapper").toggleClass("toggled");
     });
   </script>
+
+  {% block script %}{% endblock %}
 
 </body>
 {% endblock %}

@@ -1,37 +1,86 @@
 {% extends "dashboard/dashboard_base.html" %}
 
+{% block scripts %}
+    {{ super() }}
+    <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  <!-- jQuery CDN -->
+{% endblock %}
+
 {% block pagecontent %}
     <div id="page-content-wrapper">
       <div class="container-fluid">
           {{ super() }}
-          <div class="row">
-          <div class="col-md-5">
-          <div class="row align-items-center justify-content-between">
-          <h1>Projects</h1>
-            <form action="/dashboard/projects/create" method="GET">
-                <button class="btn btn-outline-primary">Add Project</button>
-            </form>
 
-          </div>
-
-          {% for project in projects %}
-            <div class="media project-card">
-                <div class="media-left media-middle">
-                    <a href="/dashboard/projects/{{project.id}}/edit"><img class="project-thumbnail" src="{{url_for('static', filename=project.thumbnail)}}"></a>
-                </div>
-                <div class="media-body pl-2 pt-2">
-                    <a href="/dashboard/projects/{{project.id}}/edit"><h3 class="media-heading">{{loop.index}} - {{project.title}}</h3></a>
-                <p>{{project.overlay_text}}</p>
-                <p>Created at: {{project.created_at}}
-                </br>
-                    Updated at: {{project.updated_at}}
-                </p>
-                </div>
+          <div class="row align-items-center mb-4">
+            <div class="col-sm-4 col-xs-4">
+                <h1>Projects</h1>
             </div>
-          {% endfor %}
+            <div class="col-sm-8 col-xs-6">
+                <form action="/dashboard/projects/create" method="GET">
+                    <button class="btn btn-outline-primary">Add Project</button>
+                </form>
+            </div>
           </div>
+
+          <div id="projectList">
+          {% for project in projects %}
+              <div data-id="{{ project.id }}" class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <a href="/dashboard/projects/{{project.id}}/edit"><img src="{{url_for('static', filename=project.thumbnail)}}" class="card-img" alt="..."></a>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                          <a href="/dashboard/projects/{{project.id}}/edit"><h5 class="card-title">{{ loop.index }} - {{ project.title }}</h5></a>
+                          <p class="card-text"><small class="text-muted">Last updated: {{ project.updated_at }}</small></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          {% endfor %}
           </div>
 
       </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+    <!-- https://github.com/SortableJS/Sortable -->
+    var element = document.getElementById('projectList')
+    Sortable.create(element, {
+                animation: 150,
+                easing: "cubic-bezier(1, 0, 0, 1)",
+                store: {
+                        /* Get the order of elements. Called once during initialization. */
+                		get: function (sortable) {
+                        var order = localStorage.getItem(sortable.options.group.name);
+                        return order ? order.split('|') : [];
+                        },
+
+                        set: function (sortable) {
+                            var order = sortable.toArray();
+                            console.log(order);
+                            $.ajax({
+                                url: "/dashboard/projects/order",
+                                type: 'POST',
+                                contentType: 'application/json;charset=UTF-8',
+                                data: JSON.stringify({ordered_project_ids: order}),
+                                success:function(response)
+                                {
+                                    console.log("success")
+                                    console.log(response);  //response from the server.
+                                },
+                                error:function(response)
+                                {
+                                    console.log("success")
+                                    console.log(response);  //response from the server.
+                                }
+                            });
+                        }
+                    },
+
+
+                });
+    </script>
 {% endblock %}
