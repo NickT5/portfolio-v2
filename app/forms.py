@@ -15,7 +15,7 @@ class ProjectForm(FlaskForm):
     description = TextAreaField('Description', validators=[DataRequired()])
     thumbnail = FileField('Thumbnail', validators=[FileAllowed(['jpg', 'png', 'gif', 'jpeg'])])
     hide = BooleanField('Hide', default=False)
-    order_number = StringField('Order number', validators=[DataRequired()])
+    order_number = StringField('Order number')
     overlay_title = StringField('Overlay Title', validators=[DataRequired()])
     overlay_text = StringField('Overlay Text', validators=[DataRequired()])
     link = StringField('Link', default='#')
