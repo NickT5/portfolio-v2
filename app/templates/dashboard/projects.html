@@ -24,7 +24,11 @@
 
           <div id="projectList">
           {% for project in projects %}
-              <div data-id="{{ project.id }}" class="card mb-3" style="max-width: 540px;">
+                  {% if project.hide == 0 %}
+                      <div data-id="{{ project.id }}" class="card mb-3" style="max-width: 540px;">
+                  {% else %}
+                      <div data-id="{{ project.id }}" class="card mb-3" style="max-width: 540px; background-color: #FAEFE1;">
+                  {% endif %}
                   <div class="row no-gutters">
                     <div class="col-md-4">
                         <a href="/dashboard/projects/{{project.id}}/edit"><img src="{{url_for('static', filename=project.thumbnail)}}" class="card-img" alt="..."></a>

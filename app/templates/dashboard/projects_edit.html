@@ -41,7 +41,7 @@
             </p>
             <p>
                 {{ form.order_number.label }}<br>
-                {{ form.order_number(size=32, autocomplete="off") }}
+                {{ form.order_number(size=32, autocomplete="off", disabled=True) }}
                 {% for error in form.order_number.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}

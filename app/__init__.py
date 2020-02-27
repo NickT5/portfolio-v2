@@ -12,5 +12,4 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 
-from app import routes
-
+from app import routes  # Import after app, db, ... are initialized to avoid a circular import error.

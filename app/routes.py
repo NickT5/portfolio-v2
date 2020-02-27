@@ -10,9 +10,6 @@ from PIL import Image
 
 def save_picture(form_picture):
     """ Save (resized) image to the filesystem with a unique (random) name. """
-    # Create a random file name.
-    # random_string = uuid4().hex
-    # _, f_ext = os.path.splitext(form_picture.filename)
     picture_filename = 'img/' + form_picture.filename
     picture_path = os.path.join(app.root_path, 'static/', picture_filename)
 
@@ -37,7 +34,6 @@ def save_update_project(form, project_id=None):
         picture_file = save_picture(form.thumbnail.data)
         project.thumbnail = picture_file
     project.hide = form.hide.data
-    project.order_number = form.order_number.data
     project.overlay_title = form.overlay_title.data.upper()
     project.overlay_text = form.overlay_text.data.upper()
     project.link = form.link.data
@@ -56,7 +52,7 @@ def load_user(user_id):
 
 @app.route("/")
 def index():
-    projects = Project.query.order_by(Project.order_number).all()
+    projects = Project.query.filter_by(hide=0).order_by(Project.order_number).all()
     return render_template("index.html", projects=projects)
 
 

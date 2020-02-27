@@ -39,13 +39,6 @@
                 {% endfor %}
             </p>
             <p>
-                {{ form.order_number.label }}<br>
-                {{ form.order_number(size=32, autocomplete="off") }}
-                {% for error in form.order_number.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p>
                 {{ form.overlay_title.label }}<br>
                 {{ form.overlay_title(size=32, autocomplete="off") }}
                 {% for error in form.overlay_title.errors %}
