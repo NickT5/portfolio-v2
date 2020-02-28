@@ -1,4 +1,5 @@
-from app import db, bcrypt, User
+from app import db, bcrypt
+from app.models import User
 from getpass import getpass
 
 

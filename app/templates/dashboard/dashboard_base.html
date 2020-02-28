@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% block title %}Dashboard{% endblock %}
-{% block stylesheet %}<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">{% endblock %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
 {% block scripts %}
   {{ super() }}
 {% endblock %}

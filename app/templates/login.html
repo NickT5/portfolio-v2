@@ -1,10 +1,14 @@
 {% extends "layout.html" %}
 
 {% block title %}Nick's portfolio{% endblock %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
 
 {% block body %}
 <body>
-    <h1>Log In</h1>
+    <div class="container">
+    <h1 class="text-center mb-3 font-weight-normal">Log In</h1>
 
     <!-- error message block -->
     <div>
@@ -20,25 +24,25 @@
     </div>
     <!-- error message block end -->
 
-    <form action="/login" method="post" novalidate>
+    <form action="/login" method="post" class="form-login" novalidate>
         {{ form.hidden_tag() }}
         <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32, autocomplete="off") }}
+
+            {{ form.username(class="form-control", autocomplete="off", placeholder="Username") }}
             {% for error in form.username.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+                <small><span style="color: red;">The username field is required.</span></small>
             {% endfor %}
         </p>
         <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32, autocomplete="off") }}
+            {{ form.password(class="form-control", autocomplete="off", placeholder="Password") }}
             {% for error in form.password.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+                <small><span style="color: red;">The password field is required.</span></small>
             {% endfor %}
         </p>
 
-        <p>{{ form.submit() }}</p>
+        <p>{{ form.submit(class="btn btn-primary btn-lg btn-block") }}</p>
     </form>
+    </div>
 
 </body>
 {% endblock %}
